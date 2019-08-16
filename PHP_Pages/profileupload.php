@@ -65,7 +65,7 @@ XML;
         if ($didUpload) {
             //echo $updateXML;
             //echo "The file " . $siteName . "-" . basename($fileName) . " has been uploaded and is available for use in the Jamf Pro Server.\r\n";
-			$get_data = callAPI('POST', 'https://' . $mdmhostname . '/JSSResource/osxconfigurationprofiles/id/0', $updateXML);
+			$get_data = callAPI('POST', 'https://' . $mdmhostname . '/JSSResource/osxconfigurationprofiles/id/0', $updateXML, $mdmapiusername, $mdmapipass);
             preg_match('/\<id\>([0-9]+)\</', $get_data, $matches);
             //var_dump($matches);
             echo "<a href='https://" . $mdmhostname . "/OSXConfigurationProfiles.html?o=r&id=" . $matches[1] . "' target='_blank'>Click Here To Edit The Profile in a new tab</a>";
